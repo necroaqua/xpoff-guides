@@ -1,0 +1,175 @@
+Hey all,
+
+Theres a lot of conversations about procs when it comes to twinking.  Which 
+procs are great.  Which procs suck.  How often does something proc.  What are 
+the mechanics of it.  So I want to go over the basic types of procs and how they 
+work, with a focus on RPPM - as that is the most confusing and least-understood.  
+This seems to come up a lot at 19 with Shadowfang's shadow bolt as an event that 
+procs elemental force, so that'll be the example I tend to use.
+
+Theres a TL;DR for the bottom if you hate math.  The TL;DR shouldn't come as a 
+surprise for anyone.
+
+[SIZE=6]Proc % + ICD[/SIZE]
+
+Internal Cooldown (ICD) procs are some of the oldest and easiest to understand.  
+There a proc percentage (say 3%) and an internal cooldown (say 40s).  Once the 
+proc happens, it can't proc again until the ICD is up.  Most of these tend to be 
+buff-based procs (chance on hit to gain lots of attack power or something).  A 
+lot of trinkets early on used this.  Notable ones for low level twinks are 
+Flintlocke's Woodchucker and Gnomish X-ray scope.  You know that you won't get 
+another proc during the ICD window, so advanced players will weapon switch to a 
+different ranged weapon after a proc to take advantage (switch to Incendiary 
+Ammo for example).
+
+[SIZE=6]PPM[/SIZE]
+Procs Per Minute (PPM) is a bit more complicated, but still fairly 
+straightforward.  Crusader is an example of a PPM enchant.  Basically, there a 
+PPM value, which is then converted into a % chance for any given hit to proc it 
+(known as PPH).  PPH is determined by your weapon speed - specifically (weapon 
+speed * PPM / 60).  So the slower your weapon, the higher % per hit.  However 
+the actual number of events doesn't come into play.  So if you have a 2h weapon 
+with a speed of 3.6, you'll have a higher PPH.  But each hit and ability you use 
+can proc it.  So even though its based on attacking once every 3.6 seconds, 
+you're going to be using abilities and might have haste - so will be proccing it 
+more.
+[LIST]
+[*]PPH scales with base weapon speed.  It doesn't scale with attack speed buffs 
+or haste.
+
+[*]Increasing events (haste, using abilities, etc) gives you more chances to 
+proc it, and will increase the total number of procs.
+[/LIST]
+So an arms warrior with crusader (PPM 1) will have a PPH of (3.6 * 1 / 60) = 6% 
+chance on each hit.  Add in haste and the fact that you'll be using abilities 
+often, you actually will get much more than 1 proc per minute.
+
+[SIZE=6]RPPM[/SIZE]
+
+This is the big one.  Real Procs Per Minute.  Introduced in MoP (if I remember 
+correctly), its a forumula that aims to replace PPM and ICD procs.  It is 
+supposed to proc the correct number of times, regardless of the number of 
+events.  So [I]on average[/I], an afflicition warlock with multiple dots on 10 
+people will proc the same number of elemental force procs as an arms warrior 
+auto-attacking.
+
+[QUOTE]Real procs per minute. This means if your trinket has an RPPM of 1, it 
+will proc once per minute, on average. If you have an RPPM of 2, it will proc 2 
+times per minute on average. With the RPPM system, it doesn’t matter how many 
+spells you use or swings you take (like it does on chance-to-proc on hit 
+trinkets).[/QUOTE]
+- [URL]http://blog.askmrrobot.com/haste-rppm-trinkets/[/URL]
+
+So what does that actually mean?  Its easy to say that, but hard to really 
+understand.
+
+So lets look at the last big change to RPPM that I know of (things aren't 
+documented well, so I dunno if its really the last big change made).  
+[URL='https://altered-time.com/forum/viewtopic.php?f=2&t=2347&p=21081#p21081']Basically 
+a bug was found in the way RPPM worked that meant it always procced really early 
+on.[/URL]  While an interested read, what we really want from there is the 
+formula.  We're also going to tweak the formula 
+[URL='https://www.reddit.com/r/wow/comments/45py8q/rppm_is_bugged_has_been_for_25_years/czzh07p/']based 
+on the fix for said bug[/URL].
+
+[CODE]proc_chance = unlucky_streak_prevention *
+              (rppm / 60.0) *
+              MIN(time_since_last_proc_attempt, 10.0)
+
+unlucky_streak_prevention = MAX(1.0, 1.0 + 3.0 * (time_since_last_proc * rppm / 
+60.0 - 1.5))
+
+ON ENTERING RAID BOSS COMBAT:
+  SET time_since_last_proc = 0.0
+  SET time_since_last_proc_attempt = 0.0[/CODE]
+
+I don't know exactly how well "entering raid boss combat" matches with "entering 
+pvp combat" - but in theory, switching the starting variables will only increase 
+the proc chance of your first proccable event.
+
+So lets break down that formula.  Theres two key variables, time_since_last_proc 
+and time_since_last_proc_attempt.  These should be fairly straightforward to 
+understand.  The variable time_since_last_proc is the number of seconds since 
+the last proc.  The time_since_last_proc_attempt variable is the number of 
+seconds since the last time the game checked for a proc.
+
+So on any event that [I]can[/I] proc, this proc_chance formula is run to 
+determine the % chance to proc.  A RNG will make a roll and compare against the 
+%.  If you make the proc, great - proc happens and both variables reset to 0.  
+If the proc does NOT happen, then the time_since_last_proc_attempt is set to 0 
+and the time_since_last_proc is not reset.
+
+So lets break down the unlucky_streak_prevention (USP) variable.  The MAX 
+function takes the higher of the two inputs, which in this case are 1.0 and an 
+equation.  So if 1+3*(time_since_last_proc * rppm /60 - 1.5) is higher than 1.0, 
+then that is used as a multiplier, otherwise the multiplier is 1.0 (which 
+changes nothing). So lets put some numbers in there.  Elemental Force is 10RPPM 
+(and the most common enchant), so plugging that in gives us that 
+unlucky_streak_prevention comes into play only when you haven't had a proc in 9 
+seconds for elemental force.  That can go down a bit depending on your haste 
+(which increases RPPM).  For Hidden Satyr at 2.5 RPPM, you need to go without a 
+proc for 36 seconds to get a bonus.
+
+For say, a rogue in melee range - its pretty unlikely that 
+unlucky_streak_prevention is going to kick in.  It can be helpful if you're 
+kited for a bit and can't attack though.  So lets assume no USP is happening, 
+and the multiplier is 1.0.  On to the rest of it.  Similar to MAX, the MIN 
+function picks the smaller of the two inputs.  With that in mind, the rest of 
+the equation is: (rppm/60) * MIN(time_since_last_proc_attempt, 10.0).
+
+So the time_since_last_proc_attempt for something like a rogue in melee range 
+will be constantly low.  You're attacking pretty often with your weapon and your 
+mainhand is attempting a proc whenever you use saber slash or other moves.  With 
+elemental force's rppm of 10, we're looking at 10/60 * number of seconds since 
+last proc attempt.  So if you have a second between attacks, that MIN function 
+will be 1.0 and you'll be looking at a 1/6 (~16.666 - repeating, of course) 
+chance of proccing.  More often, you'll be hitting lots of buttons and have an 
+even lower chance than that.  If you get out of range for a few seconds, then 
+your odds of the next proc are going to be much higher.  With elemental force, 
+the RPPM is so high that the MIN function never actually will come into play.  
+If you go 6 seconds between proc attempts, you'll have a 100% chance to proc 
+elemental force.
+
+So to compare, lets look at Hidden Satyr with 2.5 RPPM.  With 1 second between 
+attacks, you're looking at 4.16% chance of a proc.  Its even lower with faster 
+events.  Here we can see the MIN function in play.  If you don't have an event 
+in 10 seconds, you'll have a 41.66% chance of proccing Hidden Satyr.  And if its 
+any longer than 10 seconds, the MIN function will still return 10 - so the base 
+proc chance of Hidden Satyr maxes out at 41.66% to happen at 10 seconds without 
+a proc attempt.  And remember that Unlucky Streak Prevention doesn't kick in 
+until 36 seconds.
+
+So whats all this mean?  Theres a question that most 19 rogues ask at some point 
+in time - can Shadowfang's shadow bolt proc elemental force.  The answer is yes, 
+the shadow bolt is an event.  The other half of the question is - will 
+Shadowfang's shadow bolt proc elemental force more often?  The answer is no.  
+Each event basically resets the proc chance down to 0.  So if you have a melee 
+hit that does NOT proc elemental force, but does proc shadow bolt...the melee 
+hit resets the time_since_last_proc_attempt, so the shadowbolt, which is hitting 
+a fraction of a second later, is going to have a very small chance of proccing.
+
+But if it procs on a pistol shot and the shadowbolt is delayed since it takes 
+time to travel, then the time between events is bigger and it'll have a better 
+chance to proc.  That minuscule possibility and the actual shadowbolt (lol <10 
+damage) are what separates Shadowfang from a Bronze Shortsword.
+
+[B]TL;DR[/B]
+[LIST]
+[*]RPPM happens about the same amount on average, regardless of how frequent 
+events that can proc it are.  More events means lower proc chance for each 
+event.  Less events means higher proc chance for each event.
+
+[*]I'm a nerd.
+
+[*]Shadowfang is better than Bronze Shortsword (duh), but its a [I]really[/I] 
+small difference.
+[/LIST]
+[doublepost=1542346834,1542345414][/doublepost][USER=2604]@Tonkks[/USER] FYI
+
+Swoops' enchant spreadsheet is amazing in general, but also has many enchant 
+proc rates in the comments: 
+[URL]https://docs.google.com/spreadsheets/d/1riolTVrRsLB8cqPFB6Hsjw9Rs6uprLUykbHJE2wQy6s/edit#gid=1051035139[/URL]
+
+PS - if anyone wants to dig deep into it and knows C, then here is where you 
+start digging...its all over the place though: 
+[URL]https://github.com/simulationcraft/simc/blob/bfa-dev/engine/simulationcraft.hpp#L2577[/URL]

@@ -1,0 +1,544 @@
+[SIZE=6][B]Table of Contents[/B][/SIZE]
+[LIST]
+[*]Intro
+[LIST]
+[*]Intro
+[*]Table of contents (The Why)
+[*]Behind the editor: BBCode vs WYSIWYG
+[/LIST]
+[*]Technical
+[LIST]
+[*]Double-posts
+
+[*]BBCode Tutorial
+[LIST]
+[*]Basic formatting (Formatting, Strikethrough, Fonts, Size, Color)
+[*]Links
+[*]Spacing
+[*]Spoilers and Code (small note about quotes at the end)
+[*]Lists
+[/LIST]
+[*]Wowhead links
+[*]Table of Contents (The How)
+[/LIST]
+[*]Formatting
+[LIST]
+[*]Color (The Why...but also The How too...)
+[*]Spoiler Tags to clean things up
+[*]Code tags to show macros
+[*]Strikethrough to indicate information that WAS true, but is not longer true
+[/LIST]
+[*]Behind the scenes
+[LIST]
+[*]Updates
+[*]Backups
+[/LIST]
+[/LIST]
+[SIZE=6][B]Intro[/B][/SIZE]
+Hey all - I wanted to write up some notes and suggestions for making guides for 
+xpoff.  I’ll note that these are [B]MY OPINION[/B].  They aren’t official, they 
+aren’t rules - they are suggestions.  This is also more focused on a lot of the 
+more technical aspects of making a guide.  I’m not your high school english 
+teacher - you’re on your own to figure out grammar, how much humor to use, and 
+whether to use the passive voice.
+
+The point of a guide is to convey information.  The hard part is conveying that 
+information is a way that is easy for the reader to consume.  I’ve got a couple 
+of guidelines that I like to follow to make this happen.
+[LIST]
+[*][B]Be like wikipedia[/B].  This will come up all over the guide, but the 
+concept is pretty basic. Wikipedia focuses on the information.  There are no 
+popups, no crazy colors, no rambling tangents - its all about the information.
+[*][B]KISS [/B]- an acronym for “Keep It Stupid Simple” (or some variation of 
+that).  Keep things as simple and straightforward as you can.  You can have the 
+detailed and complicated information out there (especially in a different 
+section) - but try to keep the simple version as the main focus.
+[/LIST]
+So the rest of the guide will cover various topics that might be helpful in 
+making a guide that is presentable and conveys information in a meaningful and 
+understandable way.
+
+[SIZE=5][B]Table of contents (The Why)[/B][/SIZE]
+The organization of your guide is important.  You should be able to look at the 
+various sections of the guide and see a general flow.  That should also make for 
+a good table of contents.  The table of contents is basically going to be your 
+outline.  I know you probably didn’t actually care about outlines in school - 
+but even a simple table of contents is useful here.
+
+For organization, I would generally have sections follow a rough format of:
+[LIST]
+[*]Intro - introduce yourself (optional) and the purpose/contents of the guide.  
+Good place for a list of updates and table of contents.
+[*]Pre-guide information - Information that is useful/important reading before 
+the bulk of the main guide.  Really important things that everyone should see go 
+here.
+[*]Main guide - the bulk of the information.  Can be split into many parts 
+depending on what the guide covers.
+[*]References, Long explanations, other supporting info - Some of us like to 
+ramble or have in-depth explanations.  This is useful and should be part of the 
+guide - but put it at the end, where it can be found by those who are 
+interested.  This is also where very useful reference pages can go (lists of 
+enchants/quests/etc that aren’t the main point of the guide)
+[/LIST]
+Your guide, depending on the content - may not have some or all of those.  A 
+class guide will start with the intro, have pre-guide info with things like 
+races and that you should level to 19 before turning in quests, then the main 
+guide will cover gear and gameplay, finally followed by maybe a list of quests 
+that are good upgrades, or some macros that are useful. In general, make a list 
+of the sections and see if has a flow.
+
+A table of contents is a good idea for two main reasons.  First, is that it 
+gives an overview of the guide and will hopefully show the reader where the 
+information is.  Second, is that a guide might be spread out over multiple posts 
+- so it can provide links to the posts.
+
+That enough on Table of Contents for the why.  We’ll get to the HOW in a later 
+section.
+
+[SIZE=5][B]Behind the editor: BBCode vs WYSIWYG[/B][/SIZE]
+Presumably most of you edit with the What You See Is What You Get (WYSIWYG) 
+style editor.  It looks closer to what you might see in Word or Google Docs with 
+familiar buttons and dropdowns for common actions like bold, italics, underline, 
+font, size, color, lists, etc.  This is generally really helpful and really 
+great - and I use it 90% of the time.  But it isn’t perfect.  And some things 
+can be easy to mess up.  You ever see a wowhead item link followed by the next 
+word without a space?  The author probably had a space there, but the space was 
+actually part of the link.  Its hard to tell that it is - because you can’t turn 
+the space a different color like you can with most text.
+
+So for some formatting, we need to go under the hood.  There are several 
+different “markup” languages.  Reddit and wikipedia and github use something 
+called markdown.  Your internet browser uses Hypertext Markup Language - 
+otherwise known as HTML.  The XPOff forums use something called Bulletin Board 
+Code (BBCode).  Basically, we can add formatting tags in BBCode formatting - and 
+then it gets “rendered” into the actual formats that we see on the forum.  The 
+WYSIWYG editor does the same thing, but in real time.  The edits you make are 
+still kept track of as BBCode behind the scenes.  This means we can switch 
+between the WYSIWYG Editor and the BBCode editor at any time, and we’ll see 
+different formats.  It also means that you can drop BBCode into the WYSIWYG 
+Editor, and it will render properly.  See the screenshot below for the button to 
+switch to the BBCode Editor.  To switch back, there is a link below the text box 
+that says "Use Rich Text Editor" - which will bring you back to the normal 
+editor.
+
+[IMG]https://i.imgur.com/8iJWDaE.png[/IMG]
+
+So if your formatting looks weird - we’re going to go to the BBCode Editor.  
+Thats where you can see what the backend looks like and figure out if you 
+skipped a tag or if that space is actually included in the link.  Don’t be 
+scared.  Even though it looks pretty scary with brackets everywhere, its usually 
+pretty easy to pick up the basics.  See the BBCode Tutorial below for more 
+details.
+
+[B][SIZE=6]Technical Stuff[/SIZE][/B]
+[SIZE=5][B]Double-posts[/B][/SIZE]
+XPOff has a "feature" that merges posts if the same person posts multiple times 
+in a row.  While great for general forum use, it isn't so great for guides.
+
+The exception to this is that the Original Post and the Second Post will not be 
+merged.  So we get two distinct posts for our guides.  Otherwise, we might be 
+able to work with someone to post in between each post - but its difficult to do 
+since guides aren't made public until they approved.
+
+So plan on two initial posts.  I generally do the Intro post with the update 
+list, table of contents, and important information first.  Then the second post 
+with the bulk of the guide.  If you want to add any distinct posts later, simply 
+post them and link to them from the table of contents.
+
+And if you only need one post, I'd still recommend posting once with a 
+"RESERVED" comment, just in case you need it later on down the road.
+
+[B]BBCode Tutorial[/B][/SIZE]
+BBCode works by looking for tags.  Each tag is in square brackets, and certain 
+tags will do different things.  A more in-depth reference guide can be found 
+here: [URL]https://www.bbcode.org/reference.php[/URL]
+
+[SIZE=4][B]Basic formatting (Formatting, Strikethrough, Fonts, Size, 
+Color)[/B][/SIZE]
+The basics are pretty straightforward.  Place things between tags, and they'll 
+be formatted.  The following bbcode...
+[CODE]
+[B]Bold[/B]
+[I]Italics[/I]
+[U]Underline[/U]
+[S]Strikethrough[/S]
+[/CODE]
+
+gives you the following output:
+
+[B]Bold[/B]
+[I]Italics[/I]
+[U]Underline[/U]
+[S]Strikethrough[/S]
+
+Font/Size/Color is a little more interesting.
+
+[CODE]
+[FONT=Times New Roman]Font[/FONT]
+[SIZE=5]Size[/SIZE]
+[COLOR=#00ffff]Color[/COLOR]
+[/CODE]
+
+gives you...
+
+[FONT=Times New Roman]Font[/FONT]
+[SIZE=5]Size[/SIZE]
+[COLOR=#00ffff]Color[/COLOR]
+
+[B]Links[/B]
+Simply pasting a link will make it clickable, but you can also use URL tags to 
+make text link to something.
+
+[CODE]
+https://xpoff.com/
+[URL="https://xpoff.com/"]XPOff Home Page[/URL]
+[/CODE]
+
+
+gives you...
+
+[URL]https://xpoff.com/[/URL]
+[URL='https://xpoff.com/']XPOff Home Page[/URL]
+
+[B]Spoilers, Code, and Quotes[/B]
+
+Spoiler tags are useful for hiding things.  You can also change the text from 
+spoiler to something else.
+
+[CODE]
+[Spoiler]Default spoiler[/Spoiler]
+[Spoiler="Custom"]Super awesome custom spoiler[/Spoiler]
+[/CODE]
+
+gives you...
+
+[Spoiler]Default spoiler[/Spoiler]
+[Spoiler="Custom"]Super awesome custom spoiler[/Spoiler]
+
+[B]Lists[/B]
+Lists have several options and can get a bit complicated.  The basic idea is 
+that you can use LIST tags, and then each item needs to be wrapped in LI tags, 
+or use the shorthand bullet point tag.
+
+[CODE]
+List of THINGS
+[LIST]
+[*]First item (note that no closing tag is needed)
+[*]Second item
+[*]Third Item - this one has sub items
+[LIST]
+[*]Sub-item one
+[*]Sub-item two - dont forget to close the sub-list!
+[/LIST]
+[*]Fourth Item
+[/LIST]
+[/CODE]
+
+gives you...
+
+List of THINGS
+[LIST]
+[*]First item (note that no closing tag is needed)
+[*]Second item
+[*]Third Item - this one has sub items
+[LIST]
+[*]Sub-item one
+[*]Sub-item two - dont forget to close the sub-list!
+[/LIST]
+[*]Fourth Item
+[/LIST]
+
+[SIZE=5][B]Wowhead links[/B][/SIZE]
+I don’t know the details behind how it works, but there is a bit of fancy 
+javascript that takes any wowhead link and renders it with the item color and 
+mouseover information.
+
+This happens on page load, so you’ll notice that if you edit a comment - it will 
+lose the formatting and just be regular links.  Just refresh the page and it’ll 
+reload the wowhead stuff.
+
+These wowhead links are [I]great[/I].  They convey a LOT of information and you 
+only need a wowhead link.  You can drop the link in there as is, or actually do 
+the formatting behind the link.  The two following code examples will look the 
+same [I]after[/I] the wowhead javascript runs.  But they look very different 
+without the fancy javascript.  Ideally, you should do the second option - as it 
+will work better for the few people that have javascript disabled - but 
+honestly, thats very few people and not worth fretting over.
+
+[CODE]
+https://www.wowhead.com/item=1482/shadowfang
+[URL="https://www.wowhead.com/item=1482/shadowfang"]Shadowfang (ilvl 25)[/URL]
+[/CODE]
+
+will both render as...
+
+[URL]https://www.wowhead.com/item=1482/shadowfang[/URL]
+
+however if the javascript doesn't work, the second option will look like...
+
+[URL='https://bit.ly/2UHUdU4']Shadowfang (ilvl 25)[/URL]
+
+Again, its up to you whether or not its worth making it look pretty since 99% of 
+the time you'll see the wowhead stuff.
+
+The only issue with this is trying to link to a specific wowhead comment.  For 
+example, if I find a good wowhead comment and want to link to it, it will 
+instead render the page instead.  You'll want to either use a link shortener or 
+possibly copy the information from wowhead and put it in your guide.
+
+Example link to wowhead comment: 
+[URL]https://www.wowhead.com/item=10400/blackened-defias-leggings#comments:id=2369889[/URL]
+
+[SIZE=5][B]Table of Contents (The How)[/B][/SIZE]
+
+Your table of contents should be a list of the sections in your guide.  Perhaps 
+an item for each post in your guide, with sublists representing the sections 
+within each post.  That way, you can link to the location of each post.  This 
+makes it easy to link to posts later on that might not be on the first page of 
+your guide thread.
+
+Each Table of Contents is going to be different.  Adjust it to the structure and 
+setup of your guide.
+
+[SIZE=6][B]Formatting[/B][/SIZE]
+[SIZE=5][B]Color (The Why)[/B][/SIZE]
+Color is a very important thing.  It conveys information.  Going back to our “Be 
+like wikipedia” point, we want a simple color scheme.  Don’t make all of your 
+text purple - that doesn’t really work with the site colors and makes it hard to 
+read.  Don’t randomly [COLOR]color[/COLOR] words for emphasis.  Thats what Bold, 
+Italics, and Underlines are for.
+
+Using a different color should [I]mean[/I] something.  Generally, green is for 
+good things.  Red is for bad things.  If you have a to-do list, Green might be 
+done, Red might be not done (and yellow could be partially done). We don’t have 
+to explicitly explain what the colors mean, because we’ve used colors that 
+people already have associated with meanings.  This works with the colors of a 
+stoplight, and its very easy for the meaning of the colors to come across.  If 
+you wanted to use BLUE and PURPLE and ORANGE for your to-do list, you would have 
+to make a key that says what the colors are, and then the reader has to refer 
+back to the key while reading.  We want to avoid that.
+
+So when [I]should[/I] we use colors?
+
+We should use colors where it easily conveys some information.  In our to-do 
+list, green easily shows that something is done.  Red shows that something is 
+not done.  If we want to specify that something is Horde-only, then we can color 
+the word Horde in red to help convey the information.
+
+Another easy place to use colors is to represent CLASSES and ITEM RARITY.  Wow 
+has trained your brain to know that yellow is the text used for a rogue.  Red is 
+a death knight.  Blue is a shaman.  Pink a paladin.  You know that oranges > 
+purple > blue > green > white > gray because its been ingrained into you for 
+years.  We probably use blue to describe a drop more often than we actually use 
+“rare”.  So when you make a list of various classes and how to counter them - 
+use the correct color.  Its even easier to find how to counter a rogue when your 
+brain sees the yellow that it knows means rogue.  You can even use it to imply 
+information without saying it.  My signature uses the class colors.  You know my 
+character Skullshadow is a rogue because it is in yellow - even though it 
+doesn’t actually say rogue in my signature.
+
+Even better - we know the EXACT colors for these things.  Each color can be 
+represented by a HEX value.  This is typically a 6 character string that has how 
+much Red, Green, and Blue make up the color.  There is sometimes a 4th pair of 
+characters for Alpha - but we won’t use it in BBCode.  Here are the codes for 
+each class and item rarity taken from the wow wiki [1][2], followed by what the 
+code actually looks like after its been rendered.
+
+[CODE]
+[COLOR="#C41F3B"]Death Knight[/COLOR]
+[COLOR="#A330C9"]Demon Hunter[/COLOR]
+[COLOR="#FF7D0A"]Druid[/COLOR]
+[COLOR="#ABD473"]Hunter[/COLOR]
+[COLOR="#69CCF0"]Mage[/COLOR]
+[COLOR="#00FF96"]Monk[/COLOR]
+[COLOR="#F58CBA"]Paladin[/COLOR]
+[COLOR="#FFFFFF"]Priest[/COLOR]
+[COLOR="#FFF569"]Rogue[/COLOR]
+[COLOR="#0070DE"]Shaman[/COLOR]
+[COLOR="#9482C9"]Warlock[/COLOR]
+[COLOR="#C79C6E"]Warrior[/COLOR]
+
+[COLOR="#9d9d9d"]Poor[/COLOR]
+[COLOR="#ffffff"]Common[/COLOR]
+[COLOR="#1eff00"]Uncommon[/COLOR]
+[COLOR="#0070dd"]Rare[/COLOR]
+[COLOR="#a335ee"]Epic[/COLOR]
+[COLOR="#ff8000"]Legendary[/COLOR]
+[COLOR="#e6cc80"]Artifact/Heirloom[/COLOR]
+[COLOR="#00ccff"]WoW Token[/COLOR]
+[/CODE]
+
+gives you...
+
+[COLOR=#C41F3B]Death Knight[/COLOR]
+[COLOR=#A330C9]Demon Hunter[/COLOR]
+[COLOR=#FF7D0A]Druid[/COLOR]
+[COLOR=#ABD473]Hunter[/COLOR]
+[COLOR=#69CCF0]Mage[/COLOR]
+[COLOR=#00FF96]Monk[/COLOR]
+[COLOR=#F58CBA]Paladin[/COLOR]
+[COLOR=#FFFFFF]Priest[/COLOR]
+[COLOR=#FFF569]Rogue[/COLOR]
+[COLOR=#0070DE]Shaman[/COLOR]
+[COLOR=#9482C9]Warlock[/COLOR]
+[COLOR=#C79C6E]Warrior[/COLOR]
+
+[COLOR=#9d9d9d]Poor[/COLOR]
+[COLOR=#ffffff]Common[/COLOR]
+[COLOR=#1eff00]Uncommon[/COLOR]
+[COLOR=#0070dd]Rare[/COLOR]
+[COLOR=#a335ee]Epic[/COLOR]
+[COLOR=#ff8000]Legendary[/COLOR]
+[COLOR=#e6cc80]Artifact/Heirloom[/COLOR]
+[COLOR=#00ccff]WoW Token[/COLOR]
+
+
+Color references: 
+[URL='https://wowwiki.fandom.com/wiki/Class_colors']Class[/URL], 
+[URL='https://wowwiki.fandom.com/wiki/API_GetItemQualityColor']items[/URL] 
+(first hex is alpha, so use last 6 digits here), and 
+[URL='https://wow.gamepedia.com/Power_colors']resource-colors[/URL].
+
+[SIZE=5][B]Spoiler Tags[/B][/SIZE]
+Spoiler tags are rarely actually used for actual spoilers on xpoff.  They are 
+more often used to hide things.  If you have a lot of information, you can stick 
+it in spoiler tags and its hidden.  Its like stuffing all your stuff in the 
+closet instead of cleaning your room.  You can still go into the closet to find 
+that piece of information, but everything looks nicer.
+
+For us, we want to use spoilers hide details.  Especially when a reader is 
+likely looking for one specific piece of information.  The quick start guide 
+hides each spec in a spoiler tag because usually people are only looking for 
+information at one class.  They don’t want to scroll through pages of 
+information that isn’t relevant to them (or if they do, they can open all the 
+spoiler tags).  Spoiler tags clean things up very nicely.  You could also use 
+them for each section - but remember that each spoiler tag has less width than 
+the usual post.  If you next spoiler tags within spoiler tags, the inner ones 
+will get to be a pain to read.
+
+You can set the spoiler tags to display a certain bit of text.  This text does 
+not get any formatting, so I would suggest keeping it rather generic.  “More 
+Info”.  “Item Details”.  “Gear”.  If you put “Druid” in the spoiler tag - its 
+hard to really see it, as usually people only really see the tag itself and not 
+the text.  So put the title of the tag [I]outside[/I] of it (using the 
+appropriate color/size/etc), and then have the spoiler tag text be pretty 
+generic.
+
+[CODE]
+[Spoiler='Druid Stuff']List of druid-only stuff[/Spoiler]
+[Spoiler='Rogue Stuff']List of rogue-only stuff[/Spoiler]
+[/CODE]
+
+[SIZE=5][B]Code[/B][/SIZE]
+Formatting tags between Code tags will NOT be rendered.  It will also use a 
+fixed width font.  This is great for guides where you want to show BBCode 
+examples or other programming code, but are also for showing [B]macros[/B].  
+Some macros might have brackets in them, so putting macros in code tags will 
+prevent any formatting mishaps, as well as looking much more hackerish with that 
+fixed width font.  Code tags are also good for anything that needs to be 
+copied/pasted, as it clearly defines where the reader should start and stop the 
+copy.
+
+Here's a macro to use your first trinket, regardless of what you have equipped.  
+The example has the slash the wrong way to make the example work.
+
+[CODE]
+[CODE]#showtooltip 13
+/use 13[\CODE]
+[/CODE]
+
+[CODE]#showtooltip 13
+/use 13[/CODE]
+
+[SIZE=5][B]Strikethrough[/B][/SIZE]
+Strikethrough is an interesting feature that doesn’t get much use.  
+Strikethrough is best used when you want to remove/replace old information, but 
+you still want the original information to be present (but clearly no longer 
+valid).  Some example uses:
+[LIST]
+[*]To-do lists.  It can be useful to maintain a to-do list.  It indicates what 
+you are planning to do in the future, but also what you have already completed.  
+You can strikethrough a task to mark it as complete.
+[*]Drawing attention to information that has changed.  For example, before patch 
+8.1.5, the “Stats” enchant to bracers showed +1 on the tooltip, but actually 
+gave +2 stats.  Patch 8.1.5 fixed this.  Instead of simply removing the note 
+about it giving +2 stats (which might go unnoticed) - we can instead 
+strikethrough the old information (and possibly add that it was removed in 
+8.1.5).
+[*]Carefully choosing a different word in a sentence.  Since we often write how 
+we speak, we can have a sentence where we “say” a word or part of a word, 
+scratch it out, and then replace it with a different word.  We want the reader 
+to know what we were going to say, and that we actively chose to say something 
+else.  Here is an example: I made a twink to [S]farm levelers[/S] play 
+competitive wargames.
+[/LIST]
+Outside of those cases or something similar, I would suggest thinking rather 
+hard about using strikethrough.  Often, using different formatting or even 
+simply just removing the old information may be the right answer.
+
+[CODE]
+I made a twink to [S]farm levelers[/S] play competitive wargames.
+[/CODE]
+
+[SIZE=5][B]Updates[/B][/SIZE]
+
+Its a good idea to post updates on the state of your guide.  This lets readers 
+know when the guide was last updated, and if it still applies to the current 
+patch.  A simple list at the top of your guide, with dates and a small note 
+about what was updated is a perfect.  A reader wants to show up and know whether 
+or not this guide has been updated for patch 8.1.5.  Likewise, if your guide is 
+out of date, you may want to place a blurb near the top of the guide letting 
+people know.
+
+This is less important for guides that won't change from patch to patch (like 
+this one!).
+
+[SIZE=5][B]Backups[/B][/SIZE]
+It is always a good to make backups.  You never know what might happen.  XPOff 
+suffered a hostile takeover a while ago, and ended up restoring to an old backup 
+and old version of my guide.  Since my guide was backed up, I was able to bring 
+it back up to speed.  I’d highly recommend backing up - and I have 3 strategies 
+for you to do so.
+
+[B]1. Copy and Paste everything into a Google Doc or Office365 or w/e[/B]
+
+This option is really quick and really easy.  Copy all the things and paste it 
+into google drive.  Its better than nothing and again, [I]really easy[/I].  A 
+lot of the formatting won’t keep and it’ll be a pain if you need to use it - but 
+better than nothing.  It will also be on the web so you still have it if your 
+computer fails. Every so often, make sure to update your backups.
+
+[B]2. Dump the BBCode into a .txt file and store into dropbox/drive/etc[/B]
+
+This is a much better option and honestly isn’t that much harder to do.  
+Directly copying the BBCode will keep ALL of the information and formatting.  If 
+you have easy access to a code editor like notepad++ or texedit (mac) or gedit 
+(linux) - that will best keep the spacing when saving the file.  Sometimes 
+notepad will do weird things with line breaks - but it shouldn’t be a problem.
+
+Copy over every post into .txt files.  You can use one giant one, or one per 
+post for easier restoration.  Throw that into your favorite cloud storage and 
+you’ve got a back up that will restore perfectly.  Every so often, make sure to 
+update your backups.
+
+[B]3. Commit the BBCode to github/gitlab/bitbucket[/B]
+
+This one is a bit scarier.  Git is a piece of software designed to keep track of 
+changes for code repositories.  Github, Gitlab, and Bitbucket are website that 
+let you host some of your git repos for free.  I’m not going to try to teach you 
+git in this guide - but know that it is an option and there is lots of info out 
+there.  The basic idea is that you’ll make .txt files like option 2 - but when 
+you make updates, you’ll do it through the git process, which will keep track of 
+WHAT you changed.  This makes it possible to go back and undo specific changes 
+if need be.  This is known as version control and is the main reason to use 
+option 3.  Honestly, this is a bit overkill and a ton of work unless you know 
+git already.  This is what I use, but its because I’m a nerd and I use git for 
+work.
+
+
+
+Thats all I got for now.  Hope you learned something.  Feel free to ask any 
+questions or leave any comments.
+
+I might do a small section with templates for a basic signature or perhaps an 
+outline for a class guide.

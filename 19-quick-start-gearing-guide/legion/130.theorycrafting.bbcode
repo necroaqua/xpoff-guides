@@ -1,0 +1,183 @@
+[SIZE=6][B]Theorycrafting[/B][/SIZE]
+
+Weapon Rankings:
+
+
+Classes that use weapon damage (warriors, rogues, hunters, enhance shamans, 
+ret/prot pallies) have an additional consideration above ilvl for their weapons 
+- weapon damage. Weapon damage affects many skills directly, so we want to 
+maximize this.
+
+
+Currently, it appears that there are a few standard "template weapon stats" that 
+are being used. Your weapon takes on the speed and damage of the appropriate 
+weapon template. Every item within a category uses the same template. An epic 
+weapon is going to be the same as a blue dungeon drop, heirloom, green, or even 
+white. So the main thing is to equip the proper category of weapon (ex: outlaw 
+rogues should use 1hers, not daggers). Be careful not to use an int-based weapon 
+either, as caster weapons appear to have a lower template.  Then maximize item 
+level.
+
+
+These are the current known categories
+
+[LIST]
+[*]1H Sword/Mace/Axe/Fist
+
+
+[*]Daggers
+
+
+[*]2H Axes/Swords
+
+
+[*]2H Maces/Polearms/Staves (less dmg than 2h swords/axes)
+
+
+[*]Ranged (guns/bows)
+[/LIST]
+There are likely caster template categories for 1h, daggers, and staves/2h maces 
+- however I haven’t tested to figure out exactly what these categories are.  For 
+now just avoid caster (int) weapons.  You should be fine using a str weapon even 
+if you use agi (or vice versa).
+
+
+Follow these rules in order for choosing a weapon:
+
+
+1. Choose the correct category for your class/spec (ex, outlaw rogues should use 
+a 1h, not a dagger). Do not use a caster version of an item (so don't use the 
+int BoA mace over the agi BoA mace.
+
+2. Choose the highest ilvl item you have available (to increase your overall 
+ilvl). This is a very minor stat increase.
+
+
+A good place to start for any twink is the appropriate heirloom (24). Dungeons 
+at 19 now drop ilvl 25 stuff, so thats a slight increase. And the BG box can 
+drop ilvl 27 things, which are going to be BiS in most cases.  Survival hunters 
+may actually prefer an ilvl 25 axe/sword over the ilvl 27 polearm.
+
+
+Weapon offhands should always be the highest ilvl available. Skills that use the 
+offhand weapon for damage use 1/2 the damage of the main hand item (last I 
+checked - if you have evidence otherwise, let me know).
+
+
+Note that prior to 7.3, weapon speed was NOT normalized and rarity didn't 
+matter. This made certain slow weapons very strong. There was also rarity 
+scaling for a short time. This is no longer the case. If you see some part of 
+this guide referring to slow weapons or rare weapons, let me know as I missed it 
+when updating.
+
+[SIZE=4][B]Wands:[/B][/SIZE]
+
+So all over the guide I recommend to use wands over any other 1H if possible. 
+Doing a quick test in a BG shows that using a wand provides a decent chunk of 
+stats over a higher lvl 1h. That should be more than enough reason to use 
+one...but why is it happening?
+
+
+It appears as if wands are treated as 2h weapons. There are 14 armor slots and 2 
+weapons slots for each class. So the template gives you 1/16 of your template's 
+stats for each slot where you have an item equipped. Some classes only use a 
+single weapon (staff, 2Hers, ranged, etc) - so that weapon provides 2/16 worth 
+of stats. It looks like wands are counting as a 2h weapon, meaning that when you 
+equip an offhand as well, you're actually getting 3 slots worth out of your 
+weapons. So any class that uses a wand is actually getting 17/16 worth of stats, 
+which works out to be a 6.25% bonus.
+
+
+Note that this is just an assumption based on the data. I'm not 100% sure this 
+is the reason, but its by far the best explanation I've found.
+
+
+Any wand + Lily combo will be better than a mace/sword/dagger or staff. I don’t 
+know if wands drop from BG crates, but there are a few ilvl 25 wands available 
+from dungeons and questing.  Deadmines has 
+[URL='http://www.wowhead.com/item=65959/cookies-stirring-stick']Cookie's 
+Stirring Stick[/URL] from a quest and 
+[URL='http://www.wowhead.com/item=5198/cookies-stirring-rod']Cookie's Stirring 
+Rod[/URL] as a drop.  
+[URL='http://www.wowhead.com/item=5243/firebelcher']Firebelcher[/URL] is from a 
+rare spawn in Wailing Caverns. 
+[URL='http://www.wowhead.com/item=12984/skycaller']Skycaller[/URL] is a world 
+drop, so has a rare chance to drop in dungeons and scale to level 19.  Horde 
+seems to have a few blue wands available as quest rewards as well.
+
+
+[SIZE=4][B]Breakpoints:[/B][/SIZE]
+
+These are just some observations I’ve done on how increasing ilvl works using 
+deja’s char stats to see the data.  Its also old (from early legion) - so the 
+templates are definitely out of date, but the logic still applies AFAIK.
+
+
+[LIST]
+[*]My ambush tooltip damage only increases when agility gets to a new whole 
+number. It increased by 3 damage when agility when up by one. If it was using 
+decimals, it would have gone up by 1 three times as the ilvl went up.
+[/LIST]
+
+This points to there being breakpoints in terms of what stats you can get to. 
+Increasing your ilvl to ~37 to get to 113 agility on a rogue means a small 
+damage increase. Getting to ilvl 38 does nothing for your damage. Neither does 
+39, 40, 41, etc until you reach the next breakpoint (~46?).
+
+
+To verify this - try looking at your health in a BG/arena with ~ilvl 24 gear. 
+Increase your ilvl until your char sheet shows your stam going up by 1. If this 
+assumption is correct, your health will not increase until your stam actually 
+goes up, and then it will jump up by 1 stam's worth of health.
+
+
+[LIST]
+[*]When changing a lower ilvl piece for a higher ilvl piece of gear, your stats 
+can go up even if your ilvl does not go up. I replaced an ilvl 24 piece of gear 
+with an ilvl 27 piece of gear, but my average ilvl stayed at 39. Despite this, 
+my stamina went up by 1.
+[/LIST]
+
+This points to ilvl not being a whole number. So your true ilvl might be 39.76. 
+Since we increase stats by .1% per ilvl above 24, that means our stats go up by 
+(39.76-24)*.1%, which means our stats go up by 1.576% - which might be enough to 
+hit the next stat breakpoint.
+
+
+I'd be interested to see if there is a macro or addon that will give equipped 
+ilvl as a decimal. The only macro I've seen doesn't handle invasion gear well 
+(counts it as 700+ or w/e), but it did do decimals.
+
+
+In conclusion, breakpoints DO exist. But they are on the stat side of things - 
+not on the ilvl side of things.
+
+
+Example breakpoint data - Assassination Rogue
+
+Ilvl - armor/agi/stam
+
+24 - 77/112/176
+
+26 - 77/112/177
+
+31 - 78/112/177
+
+33 - 78/112/178
+
+37 - 78/113/178
+
+39.x - 78/113/179
+
+44.x - 79/113/179
+
+*46 - ?/114/180
+
+*56 - 80/?/?
+
+
+This doesn’t mean much for most people.  Just use the highest ilvl stuff you 
+can.  The only time when this matters (besides SWAG) is survival hunters 
+choosing between an ilvl 27 polearm and an ilvl 25 axe.  If equipping the 
+polearm gets you to a breakpoint, then it may be better.  Otherwise use the axe.  
+Either way - go into a BG and try both and look at the tooltip damage.
