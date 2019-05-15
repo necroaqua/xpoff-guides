@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(33,26,20);
+}
+div.guide {
+  max-width: 875px;
+  border: 2px solid rgb(68,51,33);
+  /*border: 2px solid rgb(223,174,26);*/
+  margin: auto;
+  padding: 0;
+  color:#C8C8C8;
+  background-color: rgb(40,26,14);
+  font-size: 14px;
+  font-family: 'Verdana',Arial,sans-serif;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
