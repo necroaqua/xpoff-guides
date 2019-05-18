@@ -14,3 +14,59 @@ div.guide {
   line-height: 1.6;
   word-wrap: break-word;
 }
+a {
+  color: rgb(223,174,26);
+}
+button.bbCodeSpoilerButton {
+  height: 25px !important;
+  line-height: 12px;
+  margin: 5px 0;
+  /*margin-bottom: 5px;*/
+  max-width: 99%;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-style: normal;
+  font-size: 12px;
+  font-family: 'Oswald',Helvetica,Arial,sans-serif;
+  color: rgb(231,181,28);
+  background-color: rgb(37, 27, 18);
+  padding: 0px 6px;
+  border: 1px solid rgb(17, 10, 6);
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+
+/*
+  outline: none;
+  display: inline-block;
+  box-sizing: border-box;
+*/
+}
+.bbCodeSpoilerButton > span {
+  white-space: nowrap;
+
+/*
+  display: inline-block;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+*/
+}
+.bbCodeSpoilerText {
+  background-color: #110A06 !important;
+  padding: 5px;
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid rgb(68, 51, 33);
+  border-radius: 5px;
+  overflow: auto;
+  font: 13px/1.231 arial,helvetica,clean,sans-serif;
+  font-size: 14px;
+  font-family: 'Verdana',Arial,sans-serif;
+  line-height: 1.6;
+  color: rgb(215,215,200);
+  word-wrap: break-word;
+}

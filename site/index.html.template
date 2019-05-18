@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Necroaqua's Guide Testing Platform</title>
+<link rel="stylesheet" href="main.css">
+<!-- spoiler functionality-->
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$( document ).ready(function(){
+  $(".bbCodeSpoilerButton").click(function(){
+    spoiler = $(this).next(".SpoilerTarget");
+    if (spoiler.hasClass("spoiled")){
+      spoiler.css({
+        display: 'none',
+        opacity: 0
+      });
+    } else {
+      spoiler.css({
+        display: 'block',
+        opacity: 1
+      });
+    }
+    $(this).next(".SpoilerTarget").toggleClass("spoiled");
+  });
+});
+</script>
+<!-- wowhead tooltips -->
+<script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks:
+true};</script>
+<script src="http://wow.zamimg.com/widgets/power.js"></script>
+</head>
+
+<body>
+<div class="guide">
+
+GUIDE HTML GOES HERE
+
+</div>
+</body>
+</html>
